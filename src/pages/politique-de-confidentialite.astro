@@ -1,0 +1,108 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const derniereMiseAJour = "24 novembre 2026";
+---
+
+<Layout
+  title="Politique de confidentialité – Le JukeBar"
+  description="Comment Le JukeBar traite les données personnelles, notamment les photos publiées lors de ses soirées."
+>
+  <Header />
+  <main id="main">
+    <h1>Politique de confidentialité</h1>
+    <p><em>Dernière mise à jour : {derniereMiseAJour}</em></p>
+
+    <section>
+      <h2>Qui est responsable de vos données ?</h2>
+      <p>
+        Le JukeBar, 258 rue de Bourgogne, 45000 Orléans, est responsable des traitements
+        décrits sur cette page. Pour toute question ou demande, vous pouvez nous écrire via
+        <a href="https://www.instagram.com/lejukebar/">Instagram (@lejukebar)</a>
+        ou directement au bar.
+      </p>
+      <!-- TODO : ajouter une adresse email de contact dès qu'elle est disponible. -->
+    </section>
+
+    <section>
+      <h2>Les photos des soirées</h2>
+      <p>
+        Lors de nos soirées, des photos sont prises par l'équipe du JukeBar ou par un
+        photographe que nous invitons, puis publiées sur ce site. Elles peuvent montrer des
+        personnes reconnaissables.
+      </p>
+      <ul>
+        <li>
+          <strong>Pourquoi ?</strong> Partager des souvenirs de nos soirées et faire connaître
+          le bar.
+        </li>
+        <li>
+          <strong>Sur quelle base ?</strong> Notre intérêt légitime à présenter nos événements
+          (article 6.1.f du RGPD). Vous pouvez vous y opposer à tout moment : la photo est alors
+          retirée.
+        </li>
+        <li>
+          <strong>Qui y a accès ?</strong> Les photos sont publiques : tout visiteur du site peut
+          les voir et les télécharger. Elles sont stockées chez notre hébergeur.
+        </li>
+        <li>
+          <strong>Combien de temps ?</strong> Les albums restent en ligne au maximum 3 ans après
+          la soirée. Une photo est retirée plus tôt si vous le demandez.
+        </li>
+      </ul>
+      <p>
+        <strong>Vous voulez qu'une photo soit retirée ?</strong> Envoyez-nous le nom de la soirée
+        et le numéro de la photo (affiché dans la visionneuse, par exemple « 12 / 107 »). Nous la
+        retirons dans les meilleurs délais, et au plus tard sous un mois. Vous n'avez pas à
+        justifier votre demande.
+      </p>
+    </section>
+
+    <section>
+      <h2>Données techniques de navigation</h2>
+      <p>
+        Comme tout site web, notre hébergeur enregistre des données techniques lorsque vous
+        consultez une page (adresse IP, type de navigateur, page demandée, date et heure). Elles
+        servent uniquement à faire fonctionner le site et à le protéger contre les abus.
+      </p>
+      <p>
+        Le site utilise aussi des polices de caractères fournies par Google Fonts : votre
+        navigateur les télécharge depuis les serveurs de Google, qui reçoit donc votre adresse IP.
+      </p>
+      <p>
+        Notre hébergeur (Netlify, Inc.) et Google sont situés aux États-Unis. Ces transferts sont
+        encadrés par le cadre de protection des données UE–États-Unis (Data Privacy Framework)
+        auquel ces sociétés adhèrent.
+      </p>
+    </section>
+
+    <section>
+      <h2>Cookies et mesure d'audience</h2>
+      <p>
+        Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ou de
+        publicité. Aucun bandeau de consentement n'est donc nécessaire.
+      </p>
+      <p>
+        Les liens vers Instagram vous font quitter notre site : c'est alors la politique de
+        confidentialité d'Instagram qui s'applique.
+      </p>
+    </section>
+
+    <section>
+      <h2>Vos droits</h2>
+      <p>
+        Vous pouvez à tout moment demander l'accès à vos données, leur rectification, leur
+        effacement, la limitation de leur traitement, ou vous opposer à leur utilisation. Il
+        suffit de nous contacter par les moyens indiqués plus haut. Nous répondons sous un mois.
+      </p>
+      <p>
+        Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une
+        réclamation à la CNIL :
+        <a href="https://www.cnil.fr/fr/plaintes">www.cnil.fr/fr/plaintes</a>.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>

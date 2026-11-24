@@ -387,6 +387,13 @@ h1 {
   margin: 0 0 0.5rem;
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
 .footer-links a {
   color: var(--text-muted);
   text-decoration: underline;
