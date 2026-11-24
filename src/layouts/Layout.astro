@@ -1,29 +1,49 @@
 ---
 import "../styles/global.css";
 import BackToTop from "../components/BackToTop.astro";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  /** Données structurées propres à la page (ex. fil d'Ariane), ajoutées à celles du bar. */
+  structuredData?: Record<string, unknown>[];
+  /** Exclut la page des moteurs de recherche (ex. page 404). */
+  noindex?: boolean;
 }
 
-const { title, description, ogImage = "/og-image.png" } = Astro.props;
+const {
+  title,
+  description,
+  ogImage = "/og-image.png",
+  ogImageAlt = "Le JukeBar, bar à Orléans",
+  structuredData = [],
+  noindex = false,
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteURL = new URL("/", Astro.site).toString();
 
-const schema = {
+const barSchema = {
   "@context": "https://schema.org",
   "@type": "BarOrPub",
+  "@id": `${siteURL}#bar`,
   name: "Le JukeBar",
-  image: new URL(ogImage, Astro.site).toString(),
+  url: siteURL,
+  image: new URL("/og-image.png", Astro.site).toString(),
+  logo: new URL("/logo.png", Astro.site).toString(),
   address: {
     "@type": "PostalAddress",
     streetAddress: "258 rue de Bourgogne",
+    postalCode: "45000",
     addressLocality: "Orléans",
     addressCountry: "FR",
   },
   sameAs: ["https://www.instagram.com/lejukebar/"],
 };
+
+const schemas = [barSchema, ...structuredData];
 ---
 
 <!doctype html>
@@ -33,7 +53,7 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
 
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -52,13 +72,18 @@ const schema = {
     <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:site_name" content="Le JukeBar" />
     <meta name="twitter:card" content="summary_large_image" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </head>
   <body>
     <a class="skip-link" href="#main">Aller au contenu</a>
     <slot />
     <BackToTop />
+    <Analytics />
   </body>
 </html>
