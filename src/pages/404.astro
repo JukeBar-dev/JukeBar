@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Page introuvable – Le JukeBar"
+  description="Cette page n'existe pas ou a été déplacée."
+  noindex
+>
+  <Header />
+  <main id="main">
+    <h1>Page introuvable</h1>
+    <section>
+      <p>Cette page n'existe pas, ou elle a été déplacée.</p>
+      <p><a href="/">&larr; Retour aux soirées</a></p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
